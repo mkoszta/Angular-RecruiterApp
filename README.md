@@ -2,9 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
-#Required modules
+# Required modules
 
-Angular materials 'ng add @amgular/materials'
+Angular materials 'ng add @angular/materials'
 
 import { FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
