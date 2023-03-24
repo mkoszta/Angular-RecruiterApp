@@ -1,0 +1,68 @@
+<div class="container mt-5">
+  <div style="display: inline-block; margin: 0px 10px;">
+    <mat-form-field appearance="outline">
+      <mat-label>Szűrés pozíció alapján</mat-label>
+      <select matNativeControl required [(ngModel)]="titleFilter">
+        <option value="">Válasszon a listából</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Mobil">Mobil</option>
+        <option value="Fullstack">Fullstack</option>
+      </select>
+    </mat-form-field>
+  </div>
+  
+  <div style="display: inline-block; margin: 0px 10px;">
+    <mat-form-field appearance="outline">
+      <mat-label>Szűrés státusz alapján</mat-label>
+      <select matNativeControl required [(ngModel)]="statusFilter">
+        <option value="">Válasszon a listából</option>
+        <option value="Jelentkezett">Jelentkezett</option>
+        <option value="Interjú - 1. kör">Interjú - 1. kör</option>
+        <option value="Feladat kiküldve">Feladat kiküldve</option>
+        <option value="Feladat lejárt">Feladat lejárt</option>
+        <option value="Feladat visszaküldve">Feladat visszaküldve</option>
+        <option value="Interjú - 2. kör">Interjú - 2. kör</option>
+        <option value="Értesítve - Ajánlat">Értesítve - Ajánlat</option>
+        <option value=">Értesítve - Elutasítva">Értesítve - Elutasítva</option>
+      </select>
+    </mat-form-field>
+  </div>
+  
+  <button class="float-end" mat-raised-button color="primary" (click)="openDialog()">Új jelentkező felvétele</button>
+  
+     <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Jelentkező neve</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.name}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="experience">
+        <mat-header-cell *matHeaderCellDef mat-sort-header matSort>Tapasztalat (év)</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.experience}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="jobTitle">
+          <mat-header-cell *matHeaderCellDef>Megpályázott pozíció</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{row.jobTitle}}</mat-cell>
+        </ng-container>
+    
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef>Jelentkező email címe</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.email}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Jelentkező státusza</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.status}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="applicationDate">
+        <mat-header-cell *matHeaderCellDef>Jelentkezés dátuma</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.applicationDate | date: 'yyyy/MM/dd'}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="['name', 'experience', 'jobTitle', 'email','status','applicationDate']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['name', 'experience', 'jobTitle', 'email','status','applicationDate']"></mat-row>
+    </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

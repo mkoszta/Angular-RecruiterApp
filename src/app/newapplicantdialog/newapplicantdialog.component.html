@@ -1,0 +1,51 @@
+  <form class="text-center" [formGroup]="form">
+    <mat-form-field appearance="outline">
+      <mat-label>Jelentkező neve</mat-label>
+      <input matInput formControlName="name" placeholder="Kovács Áron">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Jelentkező tapasztalata</mat-label>
+      <input matInput formControlName="experience" placeholder="3 év">
+      <mat-hint>Tapasztalat években megadva</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Megpályázott pozíció</mat-label>
+      <mat-select formControlName="jobTitle">
+        <mat-option value="Frontend">Frontend</mat-option>
+        <mat-option value="Backend">Backend</mat-option>
+        <mat-option value="Mobil">Mobil</mat-option>
+        <mat-option value="Fullstack">Fullstack</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Jelentkező Email címe</mat-label>
+      <input matInput formControlName="email" placeholder="minta@gmail.com">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Jelentkező státusza</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Jelentkezett">Jelentkezett</mat-option>
+        <mat-option value="Interjú – 1. kör">Interjú – 1. kör</mat-option>
+        <mat-option value="Feladat kiküldve">Feladat kiküldve</mat-option>
+        <mat-option value="Feladat lejárt">Feladat lejárt</mat-option>
+        <mat-option value="Feladat visszaküldve">Feladat visszaküldve</mat-option>
+        <mat-option value="Interjú – 2. kör">Interjú – 2. kör</mat-option>
+        <mat-option value="Értesítve - Ajánlat">Értesítve - Ajánlat</mat-option>
+        <mat-option value="Értesítve - Elutasítva">Értesítve - Elutasítva</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Jelentkezés dátuma</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="applicationDate" placeholder="3/21/2023">
+      <mat-hint>Hónap/Nap/Év</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="onSubmit()" [mat-dialog-close]="">Jelentkező Rögzítése</button>
+  </form>
