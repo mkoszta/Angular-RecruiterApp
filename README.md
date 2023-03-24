@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Required modules
 
-Angular materials 'ng add @angular/materials'
+Angular materials 'ng add @angular/material'
 
 import { FormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
